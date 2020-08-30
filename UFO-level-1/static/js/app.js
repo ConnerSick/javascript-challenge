@@ -10,9 +10,9 @@ function buildTable(data) {
 
     const appendRow = tbody.append("tr");
 
-    Object.values(dataRow).forEach((val) => {
+    Object.values(dataRow).forEach((item) => {
       let tableCell = appendRow.append("td");
-        tableCell.text(val);
+        tableCell.text(item);
       }
     );
   });
@@ -34,4 +34,3 @@ function updateTable() {
 
 
 d3.selectAll("#filter-btn").on("click", updateTable);
-
