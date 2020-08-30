@@ -1,4 +1,4 @@
-const tableData = data;
+let tableData = data;
 
 const tbody = d3.select("tbody");
 
@@ -8,11 +8,11 @@ function buildTable(data) {
 
   data.forEach((dataRow) => {
 
-    const row = tbody.append("tr");
+    const appendRow = tbody.append("tr");
 
     Object.values(dataRow).forEach((val) => {
-      let cell = row.append("td");
-        cell.text(val);
+      let tableCell = appendRow.append("td");
+        tableCell.text(val);
       }
     );
   });
@@ -20,7 +20,7 @@ function buildTable(data) {
 
 buildTable(tableData);
 
-function handleClick() {
+function updateTable() {
 
   const date = d3.select("#datetime").property("value");
   let filteredData = tableData;
@@ -33,5 +33,5 @@ function handleClick() {
 }
 
 
-d3.selectAll("#filter-btn").on("click", handleClick);
+d3.selectAll("#filter-btn").on("click", updateTable);
 
